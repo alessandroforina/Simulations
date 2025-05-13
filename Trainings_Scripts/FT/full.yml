@@ -1,0 +1,28 @@
+architecture:
+ name: pet
+ training:
+  checkpoint_interval: 10
+  num_epochs: 500
+  batch_size: 4
+  num_epochs_warmup: 10
+  learning_rate: 0.00001
+  weight_decay: 0.5
+  scheduler_patience: 250
+training_set:
+ systems: 
+  read_from: water_converted_corrected.xyz
+  reader: ase
+   #length_unit: angstrom
+ targets:
+  mtt::energy-revpbe0: #choose a name for the new head (if you need a new head, else just use energy)
+   key: TotEnergy
+   read_from: water_converted_corrected.xyz
+   reader: ase
+   unit: eV
+   forces:
+    key: force
+    read_from: water_converted_corrected.xyz
+    reader: ase
+     
+test_set: 0.1
+validation_set: 0.1

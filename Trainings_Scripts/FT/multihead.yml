@@ -1,0 +1,38 @@
+architecture:
+  name: pet
+  training:
+    finetune: 
+      method: heads
+      config:
+        head_modules:
+          - node_edges
+          - edge_heads
+        last_layer_modules:
+          - node_last_layers
+          - edge_last_layers
+    checkpoint_interval: 10
+    num_epochs: 2000
+    batch_size: 4
+    num_epochs_warmup: 10
+    learning_rate: 0.00005
+    weight_decay: 0.5
+    scheduler_patience: 200
+
+training_set:
+  systems: 
+    read_from: water_converted_corrected.xyz
+    reader: ase
+      #length_unit: angstrom
+  targets:
+    mtt::energy-revpbe0: #choose a name for the new head (if you need a new head, else just use energy)
+      key: TotEnergy
+      read_from: water_converted_corrected.xyz
+      reader: ase
+      unit: eV
+      forces:
+        key: force
+        read_from: water_converted_corrected.xyz
+        reader: ase
+        
+test_set: 0.1
+validation_set: 0.1
