@@ -87,10 +87,6 @@ while True:
 
     start += batch_size
     batch_idx += 1
-# Concatenate all features into a single numpy array
-all_features = np.concatenate(all_features, axis=0)
-# Save the features to a file
-np.save("feat_3.npy", all_features)
 
 print("Work done! Check the feat.npy file for the features.")
 
