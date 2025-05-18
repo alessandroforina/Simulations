@@ -10,4 +10,4 @@
 #========================================
 
 #conda activate /home/forina/miniforge3/envs/sampleselenv
-./PCA.py
+./Npy_File_SOAP_Generator.py
