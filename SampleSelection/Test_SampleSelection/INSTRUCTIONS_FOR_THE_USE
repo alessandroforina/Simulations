@@ -1,0 +1,27 @@
+##### PREREQUISITE ##############################################################################
+
+- In order to proceed, is necessary to save in the repository Dataset the Starting Configurations 
+  that one want to analyse.
+
+
+
+1) Activate the conda environment
+
+2) Run the Descriptor.py file, in order to calculate the SOAP features that are going to be used.
+   
+     - In the progress should be saved a Log file inside the folder Log
+     - A feat.npy should also be saved in the process
+     ! The command to execute is sbatch run_descriptor.sh
+
+3) Run the second script named Sample_Indexes.py
+
+     - In the process you get the inices of the most different configurations
+     - Some logs are printed during the process as a check
+     ! The command to execute is sbatch run_selection.sh
+
+4) Run the third script to finally obtain the final reduced dataset
+     - The new configuration is going to be saved in the Selected_Configurations folder
+     ! The command to execute is sbatch run_return_dataset.sh
+
+     
+
